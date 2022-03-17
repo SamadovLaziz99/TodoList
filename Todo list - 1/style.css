@@ -1,0 +1,33 @@
+body {
+    font-family: Gotham SSm A,Gotham SSm B,Helvetica,Arial,sans-serif;
+}
+
+li {
+    list-style: none;
+    font-size: 1.4rem;
+    font-weight: 550;
+}
+
+.list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.net {
+    color: red;
+    font-size: 1.4rem;
+}
+
+.red {
+    color: red;
+}
+
+.card {
+    box-shadow: 10px 10px 10px red;
+}
+
+.btn-outline-primary {
+    margin-right: 20px;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Заметок</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body>
+    <div id="app">
+        <div class="container card p-4 mt-4">
+            <h1 :style="{
+                       color: inputChanged.length >= 7 ? 'darkred' : 'darkblue'
+                   }">{{title}}</h1>
+            <input type="text"
+                   placeholder="Введите название заметки"
+                   class="form-control mt-3 red"
+                   v-model="inputChanged"
+                   @keyup.enter="addNote"
+            />
+            <div class="mt-4">
+                <button class="btn btn-success" @click="addNote">ДОБАВИТЬ</button>
+            </div>
+            <hr />
+            <ul class="list" v-if="notes.length !== 0">
+                <li class="list-item" v-for="(note, index) in notes">
+                    <span>{{ index + 1 }}. {{ note }}</span>
+                    <div class="buttons">
+                        <button class="btn btn-outline-primary" @click="updateNote(index)">Обновить</button>
+                        <button class="btn btn-outline-danger" @click="deleteNote(index)">Удалить</button>
+                    </div>
+                </li>
+                <hr />
+                <li>
+                    Общее количества : {{ notes.length }}
+                </li>
+            </ul>
+            <div v-else>
+                <span class="net">Заметок пока нет. Добавте первую</span>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="./app.js"></script>
+</body>
+</html>
